@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class='container'>
+
+        <div class="card card-done" id="1">
+            <div class="card-header card-header-done">Idea Generation</div>
+            <div class="card-main">
+                <i class="material-icons icons-done">check_circle</i>
+                <div class="main-description description-done">Farhan Hashmi</div>
+            </div>
+        </div>
+
+        <div class="card card-done" id="2">
+            <div class="card-header card-header-done">Initial Idea Screeing</div>
+            <div class="card-main">
+                <i class="material-icons icons-done">check_circle</i>
+                <div class="main-description description-done">Hanzla Chohan</div>
+            </div>
+        </div>
+
+        <div class="card card-done" id="3">
+            <div class="card-header card-header-done">Comments R And D</div>
+            <div class="card-main">
+                <i class="material-icons icons-done">check_circle</i>
+                <div class="main-description description-done">Sami Ullah Khan</div>
+            </div>
+        </div>
+
+        <div class="card card-done" id="4">
+            <div class="card-header card-header-done">Idea Presentation</div>
+            <div class="card-main">
+                <i class="material-icons icons-done">check_circle</i>
+                <div class="main-description description-done">Nawaz Ahmed Chanda</div>
+            </div>
+        </div>
+
+        <div class="card card-done" id="5">
+            <div class="card-header card-header-done">NPP Formby PM</div>
+            <div class="card-main">
+                <i class="material-icons icons-done">check_circle</i>
+                <div class="main-description description-done">Salman Anwer Malik</div>
+            </div>
+        </div>
+
+        <div class="card card-done" id="6">
+            <div class="card-header card-header-done">Summary BDI And Executive</div>
+            <div class="card-main">
+                <i class="material-icons icons-done">check_circle</i>
+                <div class="main-description description-done">Waqar Haider</div>
+            </div>
+        </div>
+
+        <div class="card card-done" id="7">
+            <div class="card-header card-header-done">Gate One Approval</div>
+            <div class="card-main">
+                <i class="material-icons icons-done">check_circle</i>
+                <div class="main-description description-done">Niqa Kazim</div>
+            </div>
+        </div>
+
+        <div class="card card-pending" id="8">
+            <div class="card-header card-header-pending">Initiate BD And I Executive</div>
+            <div class="card-main">
+                <i class="material-icons icons-pending">info</i>
+                <div class="main-description description-pending">Adil Javed</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            new LeaderLine(
+                document.getElementById("1"),
+                document.getElementById("2"),
+                {
+                    color: '#136941', size: 1, path: 'grid',
+                    startSocket: 'right',
+                    endSocket: 'left',
+                    startSocketGravity: 10,
+                    endSocketGravity: 10,
+                    //dropShadow: true
+                }
+            );
+
+            new LeaderLine(
+                document.getElementById("2"),
+                document.getElementById("3"),
+                {
+                    //dash: { animation: true }, 
+                    color: '#136941', size: 1, path: 'grid',
+                    startSocket: 'right',
+                    endSocket: 'left',
+                    startSocketGravity: 10,
+                    endSocketGravity: 10
+                }
+            );
+
+            new LeaderLine(
+                document.getElementById("3"),
+                document.getElementById("4"),
+                {
+                    color: '#136941', size: 1, path: 'grid',
+                    startSocket: 'right',
+                    endSocket: 'left',
+                    startSocketGravity: 10,
+                    endSocketGravity: 10
+                }
+            );
+
+            new LeaderLine(
+                document.getElementById("4"),
+                document.getElementById("5"),
+                {
+                    color: '#136941', size: 1, path: 'grid',
+                    startSocket: 'right',
+                    endSocket: 'left',
+                    startSocketGravity: 10,
+                    endSocketGravity: 10
+                }
+            );
+
+            new LeaderLine(
+                document.getElementById("5"),
+                document.getElementById("6"),
+                {
+                    color: '#136941', size: 1, path: 'grid',
+                    startSocket: 'right',
+                    endSocket: 'left',
+                    startSocketGravity: 10,
+                    endSocketGravity: 10
+                }
+            );
+
+            new LeaderLine(
+                document.getElementById("6"),
+                document.getElementById("7"),
+                {
+                    color: '#136941', size: 1, path: 'grid',
+                    startSocket: 'right',
+                    endSocket: 'left',
+                    startSocketGravity: 10,
+                    endSocketGravity: 10
+                }
+            );
+
+            
+
+            new LeaderLine(
+                document.getElementById("7"),
+                document.getElementById("8"),
+                {
+                    color: '#d32f2f', size: 1, path: 'grid',
+                    startSocket: 'right',
+                    endSocket: 'left',
+                    startSocketGravity: 10,
+                    endSocketGravity: 10
+                }
+            );
+        });
+    </script>
+</body>
+
+</html>
