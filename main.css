@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .entry {
@@ -23,7 +24,7 @@
 
 .card {
   width: 100px;
-  border-radius: 4px;
+  border-radius: 0px;
   overflow: hidden;
   display: flex;
   margin: 30px;
@@ -32,18 +33,23 @@
 }
 
 .card-pending {
-  border: 1px solid #ef9a9a;
+  border: 2px solid #ef9a9a;
 }
 
 .card-done {
-  border: 1px solid #136941;
+  border: 2px solid #219760;
 }
 
 .card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 35px;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 600;
-  padding: 5px 10px;
+  padding: 5px;
 }
 
 .card-header-pending {
@@ -81,6 +87,7 @@
 
 .main-description {
   font-size: 12px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
