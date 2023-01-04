@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Flowchart</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src="jquery-2.2.4.js"></script>
-    <script src="data.js"></script>
-    <script src='main.js'></script>
+    <title>Flips</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <div class='container'></div>
+    <main class="flow-container"></main>
+
+
+    <script src="main.js"></script>
+    <script src="jquery-2.2.4.js"></script>
+    <script src="data.js"></script>
 
     <script>
+        lines = [];
         $(document).ready(function () {
+
             generateSteps(data);
             drawLines(data.length);
         });
@@ -26,36 +31,62 @@
         function generateSteps(data) {
             var card = '';
             data.forEach(e => {
-                card += '<div class="card ' + e.cardClass + '" id="' + e.id + '">' +
-                    '<div class="card-header ' + e.cardHeaderClass + '">' + e.stepTitle + '</div>' +
-                    '<div class="card-main">' +
-                    '<i class="material-icons ' + e.iconClass + '">' + e.icon + '</i>' +
-                    '<div class="main-description ' + e.descClass + '">' + e.assignedTo + '</div>' +
+
+                card += '<div class="history-card" id="history-card-' + e.Id + '">' +
+                    '<div class="flip-card" onclick="this.classList.toggle(`hover`);">' +
+                    '<div class="flip-card-inner">' +
+                    '<div class="flip-card-front ' + e.status + '">' +
+                    '<div class="card-front__tp card-front_' + e.status + ' ">' +
+                    '<i class="material-icons">' + e.icon + '</i>' +
+                    '<p class="card-front__heading">' + e.stepTitle + '</p>' +
+                    '<p class="card-front__text-price">' + e.assignedTo + '</p>' +
+                    '</div>' +
+                    '<div class="card-front__bt">' +
+                    '<p class="card-front__text-view card-front__text-view--camping">Stage ' + e.stage + '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="flip-card-back ' + e.status + '">' +
+                    '<p class="inside-page__heading inside-page__heading--camping">Assigned On</p>' +
+                    '<p class="inside-page__text">' + e.assignedOn + '</p>' +
+                    '<p class="inside-page__heading inside-page__heading--camping">Performed On</p>' +
+                    '<p class="inside-page__text">' + e.completedOn + '</p>' +
+                    '<p class="inside-page__heading inside-page__heading--camping">Comments</p>' +
+                    '<p class="inside-page__text">' + e.comments + '</p>' +
+                    '</div>' +
+                    '</div>' +
                     '</div>' +
                     '</div>';
             });
-            $('.container').html(card);
+            $('.flow-container').html(card);
         }
+
 
         function drawLines(length) {
-
             for (let i = 1; i < length; i++) {
 
-                new LeaderLine(
-                    $('#' + i)[0],
-                    $('#' + (i + 1))[0],
-                    {
-                        color: '#219760', size: 2, path: 'grid',
-                        startSocket: 'right',
-                        endSocket: 'left',
-                        startSocketGravity: 10,
-                        endSocketGravity: 10,
-                        //dropShadow: true
-                    }
-                );
+                var start = document.getElementById('history-card-' + i);
+                var end = document.getElementById('history-card-' + (i + 1));
+
+                var startSocket = 'right';
+                var endSocket = 'left';
+
+                if (start.getBoundingClientRect().top != end.getBoundingClientRect().top) {
+                    startSocket = 'bottom';
+                    endSocket = 'top';
+                }
+
+                lines.push(new LeaderLine(start, end, {
+                    color: '#00a650', size: 2, path: 'grid',
+                    startSocket: startSocket,
+                    endSocket: endSocket,
+                    startSocketGravity: 10,
+                    endSocketGravity: 10,
+                }));
             }
         }
+
     </script>
+
 </body>
 
 </html>

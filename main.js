@@ -1978,7 +1978,7 @@
                     : t === P
                     ? { x: e.right, y: e.top + e.height / 2 }
                     : t === N
-                    ? { x: e.left + e.width / 2, y: e.bottom }
+                    ? { x: e.left  + e.width / 2, y: e.bottom }
                     : { x: e.left, y: e.top + e.height / 2 };
                 return (n.socketId = t), n;
               }
